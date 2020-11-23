@@ -1,0 +1,20 @@
+## springboot整合rabbitmq的基本配置
+spring:
+  rabbitmq:
+    addresses: 192.168.3.107:5672
+    username: admin
+    password: 123456
+    virtual-host: /
+    ## 消费端配置
+    listener:
+      simple:
+        concurrency: 5
+        ## manual:手动 ack（确认）
+        acknowledge-mode: manual
+        max-concurrency: 10
+        prefetch: 1
+    connection-timeout: 5000
+server:
+  port: 8082
+  servlet:
+    context-path: /
